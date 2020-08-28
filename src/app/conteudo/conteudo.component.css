@@ -1,0 +1,43 @@
+/* CONTEÚDO */
+.column-text {
+    column-count: 2;
+    text-align: justify;
+    column-gap: 3rem;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-item {
+    width: 33.3%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-item picture {
+    width: 25rem;
+    height: 25rem;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-item picture img {
+    height: 25rem;
+    width: auto;
+}
+
+.card-item p {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.4rem;
+}

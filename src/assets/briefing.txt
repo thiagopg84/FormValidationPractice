@@ -1,0 +1,9 @@
+- O botão de entrar, citado anteriormente, deve abrir um modal (use o do bootstrap ou material ou crie um se achar mais adequado) com um formulário reativo com os campos de nome e e-mail, também apresentados anteriormente, e adicionar um (campo) para o:
+1. CPF, que deve conter uma máscara de CPF. Uma dica é procurar uma biblioteca de máscaras.Também deve ser validado se o valor digitado é ou não um CPF. Para isso, pesquise por REGEX para CPF;
+2. telefone, que deve conter uma máscara de telefone. A dica é procurar por uma biblioteca de máscaras.
+
+Se os valores dos campos forem inválidos, os inputs devem ficar com um contorno vermelho e a mensagem 'campo inválido' deve ser exibida.
+Ao final do formulário, haverá um botão para participar da ONG. Ele só deve estar enabled caso todos os campos do formulário estejam validados.
+Você pode customizar a folha de estilos de sua aplicação como bem lhe agradar. É indicado que as dicas dadas sejam seguidas.
+
+Suba o código do projeto para sua conta no GitHub e compartilhe o link desse projeto no campo ao lado para que outros desenvolvedores possam analisá-lo.

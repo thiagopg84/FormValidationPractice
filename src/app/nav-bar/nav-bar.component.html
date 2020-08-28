@@ -1,0 +1,20 @@
+<nav>
+    <div class="nav-container">
+        <picture>
+            <img src="../../assets/images/logo_white.png" alt="Logo">
+        </picture>
+        <div class="modal-container">
+            <button *ngIf="!navbarModal" (click)="toggleModal()" class="relative-pos">Entrar</button>
+            <button *ngIf="navbarModal" (click)="toggleModal()" class="relative-pos">Fechar</button>
+            
+            <!-- <app-modal [ngClass]="!navbarModal ? 'modal' : 'modal modal-on'"></app-modal> -->
+            <app-modal [toggleStatus]="navbarModal"></app-modal>
+
+            
+        </div>
+        
+    </div>
+    
+</nav>
+
+

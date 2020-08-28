@@ -1,0 +1,25 @@
+/* NAV BAR */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 120rem;
+    padding: 1rem;
+}
+
+.nav-container picture img {
+    width: 10rem;
+}
+
+.modal-container {
+    position: relative;
+}

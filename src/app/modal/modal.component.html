@@ -1,0 +1,86 @@
+<div class="modal" *ngIf="toggleStatus">
+    <div class="modal-form">
+        <form action="#" [formGroup]="formularioModal" (ngSubmit)="entrar()">
+            <div class="form-item">
+                <p><label for="nome">Nome:</label></p>
+                <input type="text"
+                    placeholder="Seu nome"
+                    required
+                    name="nome"
+                    id="nome"
+                    formControlName="nome"
+                    [ngClass]="formularioModal.get('nome').invalid  && formularioModal.get('nome').touched ? 'red-border' : null">
+                <div *ngIf="formularioModal.get('nome').touched">
+                    <p *ngIf="formularioModal.get('nome').getError('minlength')" class="alert">Esse campo requer mais caracteres!</p>
+                    <p *ngIf="formularioModal.get('nome').getError('required')" class="alert">Esse campo é obrigatório!</p>
+                </div>
+                <!-- <div *ngIf="formularioModal.controls['nome'].touched">
+                    <p *ngIf="formularioModal.controls['nome'].hasError('minlength')" class="alert">Esse campo requer mais caracteres!</p>
+                    <p *ngIf="formularioModal.controls['nome'].hasError('required')" class="alert">Esse campo é obrigatório!</p>
+                </div> -->
+            </div>
+            <div class="form-item">
+                <p><label for="email">Email:</label></p>
+                <input type="email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    placeholder="seuemail@mail.com"
+                    required
+                    name="email"
+                    id="email"formControlName="email"
+                    [ngClass]="formularioModal.get('email').invalid  && formularioModal.controls['email'].touched ? 'red-border' : null">
+                <div *ngIf="formularioModal.controls['email'].touched">
+                    <p *ngIf="formularioModal.controls['email'].getError('required')" class="alert">Esse campo é obrigatório!</p>
+                    <p *ngIf="formularioModal.controls['email'].invalid" class="alert">Esse não é um email válido!</p>
+                </div>
+                <!-- <div *ngIf="formularioModal.controls['email'].touched">
+                    <p *ngIf="formularioModal.controls['email'].hasError('required')" class="alert">Esse campo é obrigatório!</p>
+                    <p *ngIf="formularioModal.controls['email'].invalid" class="alert">Esse não é um email válido!</p>
+                </div> -->
+            </div>
+            <div class="form-item">
+                <p><label for="telefone">Telefone fixo:</label></p>
+                <input type="tel"
+                    pattern="^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$"
+                    placeholder="(00) 0000-0000"
+                    required
+                    name="telefone"
+                    id="telefone"
+                    [imask]="{mask: telMask}"
+                    formControlName="telefone"
+                    [ngClass]="formularioModal.get('telefone').invalid  && formularioModal.get('telefone').touched ? 'red-border' : null">
+                <div *ngIf="formularioModal.get('telefone').touched">
+                    <p *ngIf="formularioModal.get('telefone').getError('required')" class="alert">Esse campo é obrigatório!</p>
+                    <p *ngIf="formularioModal.get('telefone').invalid" class="alert">Esse não é um telefone válido!</p>
+                </div>
+                <!-- <div *ngIf="formularioModal.controls['telefone'].touched">
+                    <p *ngIf="formularioModal.controls['telefone'].hasError('required')" class="alert">Esse campo é obrigatório!</p>
+                    <p *ngIf="formularioModal.controls['telefone'].invalid" class="alert">Esse não é um telefone válido!</p>
+                </div> -->
+            </div>
+            <div class="form-item">
+                <p><label for="cpf">CPF:</label></p>
+                <input type="text"
+                    pattern="^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}\-?\d{2})|(\d{3}\.?\d{3}\.?\d{3}\-?\d{2})$"
+                    placeholder="000.000.000-00"
+                    required
+                    name="cpf"
+                    id="cpf"
+                    maxlength="14"
+                    [imask]="{mask: cpfMask}"
+                    formControlName="cpf"
+                    [ngClass]="formularioModal.get('cpf').invalid  && formularioModal.controls['cpf'].touched ? 'red-border' : null">
+                <div *ngIf="formularioModal.get('cpf').touched">
+                    <p *ngIf="formularioModal.get('cpf').getError('required')" class="alert">Esse campo é obrigatório!</p>
+                    <p *ngIf="formularioModal.get('cpf').invalid" class="alert">Esse não é um CPF válido!</p>
+                </div>
+                <!-- <div *ngIf="formularioModal.controls['cpf'].touched">
+                    <p *ngIf="formularioModal.controls['cpf'].hasError('required')" class="alert">Esse campo é obrigatório!</p>
+                    <p *ngIf="formularioModal.controls['cpf'].invalid" class="alert">Esse não é um CPF válido!</p>
+                </div> -->
+            </div>
+            <button
+            [disabled]="formularioModal.invalid"
+            [ngClass]="formularioModal.invalid ? 'disabled-button' : null">Entrar</button>
+        </form>
+    </div>
+</div>

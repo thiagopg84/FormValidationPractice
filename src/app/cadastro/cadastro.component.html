@@ -1,0 +1,49 @@
+<section>
+    <div class="form-container">
+        <form action="#" #newsLetterForm="ngForm">
+            <fieldset>
+                <legend>Receba nossa newsletter e fique por dentro das nossas ações!</legend>
+                <div class="form-wrapper">
+                    <div class="form-item">
+                        <label for="nome">Nome:</label>
+                        <input type="text"
+                            name="nome"
+                            id="nome"
+                            minlength="2"
+                            required
+                            [(ngModel)]="nome"
+                            #userName="ngModel"
+                            [ngClass]="userName.errors?.required && userName.touched ? 'capitalize error' : 'capitalize'">
+                        <div *ngIf="userName.touched">
+                            <p *ngIf="userName.errors?.required" class="alert">Esse campo é obrigatório!</p>
+                            <p *ngIf="userName.errors?.minlength" class="alert">Esse campo exige mais caracteres!</p>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <label for="email">Email:</label>
+                        <input type="email"
+                            name="email"
+                            id="email"
+                            required
+                            minlength="3"
+                            [(ngModel)]="email"
+                            #userEmail="ngModel"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            [ngClass]="userEmail.errors?.required  && userEmail.touched ? 'error' : null">
+                        <div *ngIf="userEmail.touched">
+                            <p *ngIf="userEmail.errors?.required" class="alert">Esse campo é obrigatório!</p>
+                            <p *ngIf="userEmail.errors?.pattern" class="alert">Esse não é um email válido!</p>
+                            <p *ngIf="userEmail.errors?.minlength" class="alert">Esse campo exige mais caracteres!</p>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        [ngClass]="newsLetterForm.valid ? 'null' : 'disabled-button'"
+                        [disabled]="newsLetterForm.invalid"
+                        (click)="teste()"
+                        >Enviar
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
